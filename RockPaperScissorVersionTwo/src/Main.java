@@ -8,9 +8,11 @@ public class Main {
 	public static void main(String[] args) {
 		
 		//create a new instace of every weapon . 
-		Weapon r = new Rock();
-		Weapon p = new Paper();
-		Weapon s = new Scissor();
+		Weapon r = new Rock("rock");
+		Weapon p = new Paper("paper");
+		Weapon s = new Scissor("scissor");
+		Weapon sp = new Spock("spock");
+		Weapon l = new Lizard("lizard");
 		//initialize variables
 		String opponent = "";
 		String result = ""; 
@@ -40,11 +42,11 @@ public class Main {
 			// Creates a random number between 1 and 3 and then assign a choice
 			// to each value for the users opponent.
 			Random rand = new Random();
-			int n = rand.nextInt(3) + 1;
+			int n = rand.nextInt(5) + 1;
 			//Add a string value to the random number
 			//Create a attackWeapon variable depending on the computers weapon
 			
-			Weapon attackWeapon = new Rock();
+			Weapon attackWeapon = r;
 			switch (n) {
 				case 1: opponent = "rock";
 						attackWeapon = r;
@@ -54,6 +56,14 @@ public class Main {
 					break;
 				case 3:	opponent = "scissor";
 						attackWeapon = s;
+					break;
+				case 4: opponent = "spock";
+						attackWeapon = sp;
+					break;
+				case 5: opponent = "lizard";
+						attackWeapon = l;
+					break;
+				default:opponent = "could not chose a opponent!";
 					break;
 			}		
 			
@@ -70,8 +80,14 @@ public class Main {
 			} else if (Objects.equals(user, new String("scissor"))) {
 				result = s.attack(attackWeapon);
 
+			} else if (Objects.equals(user, new String("spock"))) {
+				result = sp.attack(attackWeapon);
+
+			} else if (Objects.equals(user, new String("lizard"))) {
+				result = l.attack(attackWeapon);
+
 			} else { //if the user did not choose rock paper or scissor the for loop breaks and the game ends.
-				System.out.println("You need to write 'rock', 'paper' or 'scissor'");
+				System.out.println("You need to write 'rock', 'paper', 'scissor', 'spock' or lizard");
 				break;
 			}
 			

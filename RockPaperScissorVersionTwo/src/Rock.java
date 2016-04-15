@@ -1,10 +1,14 @@
 
 public class Rock extends Weapon {
-	String name = "rock";
+	
+	public Rock (String name) {
+		super(name);
+	}
+	
 
 	//Method that takes the attackers weapon and sends this wepon to the attackers attackedBy method. 
 	public String attack (Weapon w) {
-		return w.attackedBy(name);
+		return w.attackedBy(getName());
 	}
 
 	//checks what weapon the method has been attacked with and returns a result of the round.
@@ -16,6 +20,10 @@ public class Rock extends Weapon {
 			case "paper":	result = "win";
 				break;
 			case "scissor":	result = "lose";
+				break;
+			case "spock":	result = "win";
+				break;
+			case "lizard":	result = "lose";
 				break;
 			default: 		result = "Error: no result";
 				break;	

@@ -1,10 +1,13 @@
 
 public class Scissor extends Weapon{
-	String name = "scissor";
+
+	public Scissor (String name) {
+		super(name);
+	}
 	
-	//Method that takes the attackers weapon and sends this wepon to the attackers attackedBy method. 	
+	//Method that takes the attackers weapon and sends this weapon to the attackers attackedBy method. 	
 	public String attack(Weapon w) {
-		return w.attackedBy(name);
+		return w.attackedBy(getName());
 	}
 
 	//checks what weapon the method has been attacked with and returns a result of the round.	
@@ -16,6 +19,10 @@ public class Scissor extends Weapon{
 			case "paper":	result = "lose";
 				break;
 			case "scissor":	result = "draw";
+				break;
+			case "spock":	result = "win";
+				break;
+			case "lizard":	result = "lose";
 				break;
 			default: 		result = "Error: no result";
 				break;

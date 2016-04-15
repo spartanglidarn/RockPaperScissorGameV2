@@ -1,7 +1,6 @@
 
-public class Paper extends Weapon{
-	
-	public Paper (String name) {
+public class Spock extends Weapon {
+	public Spock (String name) {
 		super(name);
 	}
 	
@@ -9,18 +8,18 @@ public class Paper extends Weapon{
 	public String attack(Weapon w) {
 		return w.attackedBy(getName());
 	}
-	
+
 	//checks what weapon the method has been attacked with and returns a result of the round.	
 	public String attackedBy(String t) {
 		String result = "";
 		switch (t) {
 			case "rock":	result = "lose";
 				break;
-			case "paper":	result = "draw";
+			case "paper":	result = "win";
 				break;
-			case "scissor":	result = "win";
+			case "scissor":	result = "lose";
 				break;
-			case "spock":	result = "lose";
+			case "spock":	result = "draw";
 				break;
 			case "lizard":	result = "win";
 				break;
@@ -29,5 +28,5 @@ public class Paper extends Weapon{
 		}
 		
 		return result;
-	}	
+	}
 }
